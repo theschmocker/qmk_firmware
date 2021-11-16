@@ -14,5 +14,6 @@ COMB(FlClic,      KC_BTN1,          KC_F5, KC_F10)
 COMB(FrClic,      KC_BTN2,          KC_F4, KC_F9)
 COMB(numNext,     KC_MNXT,          KC_RGHT, KC_MS_R)
 COMB(numPrev,     KC_MPRV,          KC_UP, KC_MS_U)
+COMB(numPlay,     KC_MPLY,          KC_LEFT, KC_MS_L, KC_DOWN, KC_MS_D)
 
 SUBS(pasta,       "I'd just like to interject for a moment.",       KC_H, KC_J, KC_K, KC_L)
