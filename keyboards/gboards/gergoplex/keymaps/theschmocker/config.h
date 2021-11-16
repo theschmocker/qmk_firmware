@@ -1,0 +1,17 @@
+#define COMBO_ALLOW_ACTION_KEYS 
+#define COMBO_VARIABLE_LEN
+#undef IGNORE_MOD_TAP_INTERRUPT
+#define IGNORE_MOD_TAP_INTERRUPT_PER_KEY
+
+#define MOUSEKEY_INTERVAL       16
+#define MOUSEKEY_DELAY          50
+#define MOUSEKEY_TIME_TO_MAX    60
+#define MOUSEKEY_MAX_SPEED      7
+#define MOUSEKEY_WHEEL_DELAY 0
+
+// copied from germ/qmk_firmware base gergoplex config
+#define TAPPING_TOGGLE  1
+#define TAPPING_TERM    200
+#define LOCKING_SUPPORT_ENABLE
+#define LOCKING_RESYNC_ENABLE
+#define COMBO_TERM 40
