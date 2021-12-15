@@ -1,0 +1,19 @@
+// Gergoplex specfic combos 
+
+COMB(opBacksl,    KC_BSLS,          KC_O, KC_P)
+COMB(hjLess,      KC_LT,            KC_H, KC_J)
+COMB(klGreat,     KC_GT,            KC_K, KC_L)
+COMB(xcDash,      KC_MINS,          KC_X, KC_C)
+COMB(mcUnds,      KC_UNDS,          KC_M, KC_COMM)
+COMB(nmQuot,      KC_QUOT,          KC_N, KC_M)
+COMB(gbClic,      KC_BTN1,          KC_G, KC_B)
+COMB(fvClic,      KC_BTN2,          KC_F, KC_V)
+
+// NUM Layer
+COMB(FlClic,      KC_BTN1,          KC_F5, KC_F10)
+COMB(FrClic,      KC_BTN2,          KC_F4, KC_F9)
+COMB(numNext,     KC_MNXT,          KC_RGHT, KC_MS_R)
+COMB(numPrev,     KC_MPRV,          KC_UP, KC_MS_U)
+COMB(numPlay,     KC_MPLY,          KC_LEFT, KC_MS_L, KC_DOWN, KC_MS_D)
+
+SUBS(pasta,       "I'd just like to interject for a moment.",       KC_H, KC_J, KC_K, KC_L)
