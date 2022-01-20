@@ -29,6 +29,8 @@ extern uint16_t COMBO_LEN;
 
 __attribute__((weak)) void process_combo_event(uint16_t combo_index, bool pressed) {}
 
+__attribute__((weak)) uint8_t get_combo_layer(uint8_t current_layer) { return current_layer; }
+
 #ifdef COMBO_MUST_HOLD_PER_COMBO
 __attribute__((weak)) bool get_combo_must_hold(uint16_t index, combo_t *combo) { return false; }
 #endif
@@ -479,6 +481,10 @@ bool process_combo(uint16_t keycode, keyrecord_t *record) {
 #ifdef COMBO_ONLY_FROM_LAYER
     /* Only check keycodes from one layer. */
     keycode = keymap_key_to_keycode(COMBO_ONLY_FROM_LAYER, record->event.key);
+#endif
+#ifndef COMBO_ONLY_FROM_LAYER
+    /* Only check keycodes from one layer. */
+    keycode = keymap_key_to_keycode(get_combo_layer(layer_state), record->event.key);
 #endif
 
     for (uint16_t idx = 0; idx < COMBO_LEN; ++idx) {
