@@ -11,6 +11,7 @@
 
 enum {
     _ALPHA,   // default
+    _COLEMAK,
     _SPECIAL, // special characters
     _NUMBERS  // numbers/function/motion
 };
@@ -21,6 +22,7 @@ enum {
 #define KC_LALX LALT_T(KC_X)
 #define KC_RLSH RSFT_T(KC_SLSH)
 #define KC_SPEC MO(_SPECIAL)
+#define KC_CTL_O  MT(MOD_RCTL, KC_O)     // Tap for colon, hold for Control
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_ALPHA] = LAYOUT_split_3x5_3( /* QWERTY */
@@ -28,6 +30,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_CTLA, KC_S,    KC_D,    KC_F,    KC_G,            KC_H,    KC_J,  KC_K,    KC_L,   KC_CTSC,
     KC_LSHZ, KC_LALX, KC_C,    KC_V,    KC_B,            KC_N,    KC_M,  KC_COMM, KC_DOT, KC_RLSH,
                    KC_TRNS, KC_SPEC, KC_LGUI,            MT(MOD_LSFT, KC_ENT), LT(_NUMBERS, KC_SPC), KC_TRNS
+  ),
+
+  [_COLEMAK] = LAYOUT_split_3x5_3(
+         KC_Q,     KC_W,   KC_F,   KC_P,   KC_B,            KC_J,   KC_L,   KC_U,     KC_Y,   KC_SCLN,
+         KC_CTLA, KC_R,   KC_S,   KC_T,   KC_G,             KC_M,   KC_N,   KC_E,     KC_I,   KC_CTL_O,
+         KC_LSHZ, KC_LALX,   KC_C,   KC_D,   KC_V,          KC_K,   KC_H,   KC_COMMA, KC_DOT, KC_RLSH,
+                       KC_TRNS, KC_SPEC, KC_LGUI,           MT(MOD_LSFT, KC_ENT), LT(_NUMBERS, KC_SPC), KC_TRNS
   ),
 
   [_SPECIAL] = LAYOUT_split_3x5_3(
@@ -53,4 +62,12 @@ bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
     default:
       return true;
   }
+}
+
+int8_t get_combo_layer(uint8_t current_layer) {
+    if (current_layer == _COLEMAK) {
+        return _ALPHA;
+    }
+
+    return current_layer;
 }
