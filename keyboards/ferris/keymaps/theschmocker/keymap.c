@@ -64,7 +64,7 @@ bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
   }
 }
 
-uint8_t get_combo_layer(uint8_t current_layer) {
+int8_t get_combo_layer(int8_t current_layer) {
     if (current_layer == _COLEMAK) {
         return _ALPHA;
     }
